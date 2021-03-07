@@ -21,32 +21,41 @@
 
 const reverse = function (x) {
   let i = x;
-  if (x > 0x7FFFFFFF || x < -0x80000000) { //0x7FFFFFFF = 2^31 - 1, -0x80000000 = -2^31
-    return 0;
-  }
   if (x < 0) {
     i = -i;
     const string_i = String(i);
     let reverse_i = string_i.split("").reverse().join("");
-    return Number(-reverse_i);
+    reverse_i = Number(-reverse_i);
+    return reverse_i < -0x80000000 ? 0 : reverse_i;
   } else {
     const string_i = String(i);
     let reverse_i = string_i.split("").reverse().join("");
-    return Number(reverse_i);
+    reverse_i = Number(reverse_i);
+    return reverse_i > 0x7fffffff ? 0 : reverse_i;
   }
 };
 
 // More efficient
-// function reverse(n) {
-//   var reverseN = 0;
-//   var sign = n < 0;
-//   n = Math.abs(n);
-//   while (n) {
-//     reverseN = reverseN * 10 + (n % 10);
-//     n = Math.floor(n / 10);
-//   }
-//   return reverseN > 0x7fffffff ? 0 : sign ? -reverseN : reverseN;
-// }
 
-console.log(reverse(1534236469));
+function reverse2(n) {
+  var reverseN = 0;
+  var sign = n < 0;
+  n = Math.abs(n);
+  while (n) {
+    reverseN = reverseN * 10 + (n % 10);
+    n = Math.floor(n / 10);
+  }
+  if (reverseN > 0x7fffffff) {
+    return 0;
+  } else {
+    return sign ? -reverseN : reverseN;
+  }
+}
+
+console.log(reverse(15342364));
+console.log(reverse(-15342364));
 console.log(reverse(2147483648));
+
+console.log(reverse2(15342364));
+console.log(reverse2(-15342364));
+console.log(reverse2(2147483648));
