@@ -19,6 +19,7 @@
 // 3. 2 steps + 1 step
 
 let climbStairs = function (n) {
+  if (n < 3) return n;
   let a = 1,
     b = 2,
     next;
@@ -28,7 +29,9 @@ let climbStairs = function (n) {
     a = b;
     b = next;
   }
-  return n === 1 ? a : b;
+  return b;
 };
 
+console.log(climbStairs(3));
 console.log(climbStairs(4));
+console.log(climbStairs(5));
