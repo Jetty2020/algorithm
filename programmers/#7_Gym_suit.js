@@ -25,17 +25,17 @@ function solution(n, lost, reserve) {
   }
   for (let i = 0; i < n; i++) {
     if (students[i] === 0) {
-      if (students[i-1] === 2) {
+      if (students[i - 1] === 2) {
         students[i] = 1;
-        students[i-1] = 1;
-      } else if (students[i+1] === 2) {
+        students[i - 1] = 1;
+      } else if (students[i + 1] === 2) {
         students[i] = 1;
-        students[i+1] = 1;
+        students[i + 1] = 1;
       }
     }
   }
 
-  return students.filter(student => student !== 0).length;
+  return students.filter((student) => student !== 0).length;
 }
 
 console.log(solution(5, [2, 4], [1, 3, 5])); //5

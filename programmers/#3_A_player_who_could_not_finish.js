@@ -12,16 +12,16 @@ function solution(participant, completion) {
     }
   }
 }
-console.log("case 1");
-console.log(solution(["leo", "kiki", "eden"], ["eden", "kiki"]));
-console.log("case 2");
+console.log('case 1');
+console.log(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']));
+console.log('case 2');
 console.log(
   solution(
-    ["marina", "josipa", "nikola", "vinko", "filipa"],
-    ["josipa", "filipa", "marina", "nikola"]
+    ['marina', 'josipa', 'nikola', 'vinko', 'filipa'],
+    ['josipa', 'filipa', 'marina', 'nikola']
   )
 );
-console.log("case 3");
+console.log('case 3');
 console.log(
-  solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"])
+  solution(['mislav', 'stanko', 'mislav', 'ana'], ['stanko', 'ana', 'mislav'])
 );
