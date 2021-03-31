@@ -19,5 +19,10 @@ function solution(n) {
   return answer;
 }
 
-console.log(solution(45)); //7
-console.log(solution(125)); //229
+//Better
+const solution2 = (n) => {
+  return parseInt([...n.toString(3)].reverse().join(""), 3);
+}
+
+console.log(solution2(45)); //7
+console.log(solution2(125)); //229

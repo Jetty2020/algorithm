@@ -4,6 +4,20 @@
 // 예를 들어 a = 3, b = 5인 경우, 3 + 4 + 5 = 12이므로 12를 리턴합니다.
 
 function solution(a, b) {
+  let answer = 0;
+  while (a !== b) {
+    answer += a;
+    if (a < b) {
+      a++;
+    } else {
+      a--;
+    }
+  }
+  return answer ? answer + b : a;
+}
+
+//better
+function solution2(a, b) {
   return ((a + b) * (Math.abs(b - a) + 1)) / 2;
 }
 

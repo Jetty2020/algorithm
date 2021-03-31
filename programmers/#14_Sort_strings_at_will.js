@@ -26,7 +26,9 @@ function solution(strings, n) {
 function solution2(strings, n) {
   // strings 배열
   // n 번째 문자열 비교
-  return strings.sort((s1, s2) => s1[n] === s2[n] ? s1.localeCompare(s2) : s1[n].localeCompare(s2[n]));
+  return strings.sort((s1, s2) =>
+    s1[n] === s2[n] ? s1.localeCompare(s2) : s1[n].localeCompare(s2[n])
+  );
 }
 
 console.log(solution2(['sun', 'bed', 'car'], 1)); //['car', 'bed', 'sun']
