@@ -21,7 +21,6 @@
 function solution(nums) {
   nums.sort();
   let an = nums.filter((num, index) => num != nums[index + 1]);
-  // console.log(Math.min(an.length, nums.length / 2));
   return Math.min(an.length, nums.length / 2);
 }
 
