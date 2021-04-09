@@ -1,3 +1,5 @@
+// https://programmers.co.kr/learn/courses/30/lessons/62048
+
 // 문제 설명
 
 // 가로 길이가 Wcm, 세로 길이가 Hcm인 직사각형 종이가 있습니다. 종이에는 가로, 세로 방향과 평행하게 격자 형태로 선이 그어져 있으며,
