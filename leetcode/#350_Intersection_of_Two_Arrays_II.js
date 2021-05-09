@@ -26,7 +26,6 @@ const intersect = (nums1, nums2) => {
       }
     }
   }
-  console.log(nums1, nums2);
   return ans;
 };
 
