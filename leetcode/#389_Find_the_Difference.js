@@ -8,7 +8,6 @@ const findTheDifference = (s, t) => {
     if (sArr.indexOf(tArr[i]) === -1) ans += tArr[i];
     else sArr[sArr.indexOf(tArr[i])] = 0;
   }
-  console.log(sArr)
   return ans;
 };
 
