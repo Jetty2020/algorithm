@@ -7,20 +7,18 @@
 // 예를 들어, 길이가 2이고 10kg 무게를 견디는 다리가 있습니다. 무게가 [7, 4, 5, 6]kg인 트럭이 순서대로 최단 시간 안에 다리를 건너려면 다음과 같이 건너야 합니다.
 
 const solution = (bl, w, tw) => {
-  let totalW = tw.reduce((a,b)=> a+b),
+  let totalW = tw.reduce((a, b) => a + b),
     arr = Array(bl).fill(0),
     arrive = [0],
-    ans = 0
-    ;
-  for (; arrive.reduce((a,b) => a+b) !== totalW; ans++) {
+    ans = 0;
+  for (; arrive.reduce((a, b) => a + b) !== totalW; ans++) {
     let pop = arr.pop();
     if (pop !== 0) arrive.push(pop);
-    if (arr.reduce((a,b) => a+b)+ tw[0] <= w) {
+    if (arr.reduce((a, b) => a + b) + tw[0] <= w) {
       arr.unshift(tw.shift());
     } else {
-      arr.unshift(0)
+      arr.unshift(0);
     }
-
   }
   return ans;
 };
@@ -29,7 +27,9 @@ const solution = (bl, w, tw) => {
 
 const solution = (bridge_length, weight, truck_weights) => {
   // '다리'를 모방한 큐에 간단한 배열로 정리 : [트럭무게, 얘가 나갈 시간].
-  let time = 0, qu = [[0, 0]], weightOnBridge = 0;
+  let time = 0,
+    qu = [[0, 0]],
+    weightOnBridge = 0;
 
   // 대기 트럭, 다리를 건너는 트럭이 모두 0일 때 까지 다음 루프 반복
   while (qu.length > 0 || truck_weights.length > 0) {
@@ -38,7 +38,7 @@ const solution = (bridge_length, weight, truck_weights) => {
     if (qu[0][1] === time) weightOnBridge -= qu.shift()[0];
 
     if (weightOnBridge + truck_weights[0] <= weight) {
-      // 2. 다리 위 트럭 무게 합 + 대기중인 트럭의 첫 무게가 감당 무게 이하면 
+      // 2. 다리 위 트럭 무게 합 + 대기중인 트럭의 첫 무게가 감당 무게 이하면
       //    다리 위 트럭 무게 업데이트, 큐 뒤에 [트럭무게, 이 트럭이 나갈 시간] 추가.
       weightOnBridge += truck_weights[0];
       qu.push([truck_weights.shift(), time + bridge_length]);
@@ -52,7 +52,7 @@ const solution = (bridge_length, weight, truck_weights) => {
     time++;
   }
   return time;
-}
+};
 
 console.log(solution(2, 10, [7, 4, 5, 6])); //8
 console.log(solution(100, 100, [10])); //101
