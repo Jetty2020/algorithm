@@ -2,7 +2,6 @@
 
 function solution(gems) {
   const result = new Set(gems);
-  const resultSize = result.size;
   const gemsLength = gems.length;
 
   const nowGems = new Map();
@@ -13,7 +12,7 @@ function solution(gems) {
   let answer = [0, gemsLength - 1];
 
   while (end < gemsLength && start <= end) {
-    if (resultSize === nowGems.size) {
+    if (result.size === nowGems.size) {
       if (end - start < answer[1] - answer[0]) {
         answer = [start, end];
       }
