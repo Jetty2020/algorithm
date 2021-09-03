@@ -5,7 +5,7 @@ function solution(key, lock) {
   const board = makeBoard(lock, keyLen);
 
   for (let i = 0; i < 4; i++) {
-    key = rotate(key);
+    key = rotateKey(key);
 
     for (let j = 0; j <= board.length - keyLen; j++) {
       for (let k = 0; k <= board.length - keyLen; k++) {
@@ -23,7 +23,7 @@ function solution(key, lock) {
   return false;
 }
 
-const rotate = (key) => {
+const rotateKey = (key) => {
   return key.map((_, idx) => {
     const rest = [];
     for (let i = key.length - 1; i >= 0; i--) rest.push(key[i][idx]);
@@ -33,11 +33,12 @@ const rotate = (key) => {
 
 const makeBoard = (lock, keyLen) => {
   const blocks = lock.length + 2 * keyLen - 2;
+  
+  const div = (blocks - lock.length) / 2;
+  const fb = new Array(div).fill(0);
 
   return new Array(blocks).fill().map((_, idx) => {
-    const div = (blocks - lock.length) / 2;
     if (idx >= div && idx < div + lock.length) {
-      const fb = new Array(div).fill(0);
       return [...fb, ...lock[idx - div], ...fb];
     }
     return new Array(blocks).fill(0);
