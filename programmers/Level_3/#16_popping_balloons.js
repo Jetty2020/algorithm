@@ -8,17 +8,12 @@ function solution(a) {
   let m2 = a[m2_idx];
 
   while (m1_idx < m2_idx) {
-    if (m1 > m2) {
-      if (m1 > a[++m1_idx]) {
-        answer++;
-        m1 = a[m1_idx];
-      }
-    }
-    if (m1 < m2) {
-      if (m2 > a[--m2_idx]) {
-        answer++;
-        m2 = a[m2_idx];
-      }
+    if (m1 > m2 && m1 > a[++m1_idx]) {
+      answer++;
+      m1 = a[m1_idx];
+    } else if (m1 < m2 && m2 > a[--m2_idx]) {
+      answer++;
+      m2 = a[m2_idx];
     }
   }
 
