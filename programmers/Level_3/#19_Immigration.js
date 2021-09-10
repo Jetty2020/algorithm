@@ -7,7 +7,7 @@ function solution(n, times) {
   while (min <= max) {
     const mid = Math.floor((max + min) / 2);
     const sum = times.reduce((a, b) => (a += Math.floor(mid / b)), 0);
-    console.log(min, max, sum);
+
     if (sum >= n) max = mid - 1;
     else min = mid + 1;
   }
