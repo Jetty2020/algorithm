@@ -1,2 +1,0 @@
-# algorithm
-algorithm source code
