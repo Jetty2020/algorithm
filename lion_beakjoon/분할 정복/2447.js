@@ -1,11 +1,13 @@
+// https://www.acmicpc.net/problem/2447
+
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split('\n');
+const filePath = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+let input = fs.readFileSync(filePath).toString().trim().split('\n');
 const num = parseInt(input[0]);
 
 const lines = [];
 
 printStars(num);
-console.log(lines.join(''));
 
 function printStars(num) {
   for (let i = 0; i < num; i++) {
@@ -18,7 +20,6 @@ function printStars(num) {
 
 function star(i, j, num) {
   if (i % 3 == 1 && j % 3 == 1) {
-    // (1,1), (1,4), (1,7)...
     lines.push(' ');
   } else {
     if (num == 1) {
@@ -28,3 +29,5 @@ function star(i, j, num) {
     }
   }
 }
+
+console.log(lines.join(''));
